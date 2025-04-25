@@ -1,0 +1,41 @@
+# Ignore node_modules folder
+node_modules/
+HyperDM/
+
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore environment files
+.env
+.venv/
+
+# Ignore macOS system files
+.DS_Store
+
+# Ignore log files
+*.log
+
+# Ignore compiled files
+*.o
+*.so
+*.out
+
+# Ignore temporary files
+*.tmp
+*.swp
+*.bak
+*.orig
+
+# Ignore build directories
+build/
+dist/
+*.egg-info/
+
+# Ignore IDE specific files
+.vscode/
+.idea/
+
