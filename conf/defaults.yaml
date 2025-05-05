@@ -1,2 +1,7 @@
 # Default Configuration File for HyperDynamics
 # This file contains the default settings for the HyperDynamics project.
+
+
+defaults:
+  - models: defaults
+  - networks : defaults

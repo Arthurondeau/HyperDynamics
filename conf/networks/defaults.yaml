@@ -1,0 +1,10 @@
+network_type: RandomHyperGraph
+EDVW_params:
+  EDVW_type: normal
+RandomHyperGraph:
+  _target_: src.utils.networks_dict.RandomHyperGraph
+  n: 5  # Int, Number of nodes
+  ps: 0.5  # Probability of creating a hyperedge
+  order: 3  # Order of the hyperedge
+  seed: None  # Seed for the random number generator
+  EDVW: true  # If true, use the EDVW model
