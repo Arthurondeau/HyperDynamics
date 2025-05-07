@@ -1,10 +1,14 @@
-network_type: RandomHyperGraph
+network_type: RandomHyperGraph #Type of hypergraph to instantiate
+project_clique: True #True if you want to use the projected clique
+W_weights_type: normal #Type of weights of the hyperedge weight matrix W
 EDVW_params:
-  EDVW_type: normal
+  R_type: normal #Type of EDVW weight of the vertex-weight matrix R
 RandomHyperGraph:
   _target_: src.utils.networks_dict.RandomHyperGraph
   n: 5  # Int, Number of nodes
   ps: 0.5  # Probability of creating a hyperedge
   order: 3  # Order of the hyperedge
   seed: None  # Seed for the random number generator
-  EDVW: true  # If true, use the EDVW model
+  EDVW: true  # If true, use the vertex-weight matrix R model
+  weighted: true  # If true, use the hyperedge weight matrix W model
+

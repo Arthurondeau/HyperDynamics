@@ -23,6 +23,7 @@ def main(cfg: DictConfig):
     network = instantiate_network(cfg)
     print(f"Network instantiated with type: {cfg.networks.network_type}")
     ## Project the network
+
     #clique_network = network.project_to_clique()
 # Entry point of the script
 if __name__ == "__main__":
