@@ -4,6 +4,7 @@ HyperDM/
 
 # Ignore Hydra configuration files
 outputs/
+*.pdf
 # Ignore Python cache files
 __pycache__/
 *.py[cod]
