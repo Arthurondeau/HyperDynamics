@@ -5,3 +5,4 @@
 defaults:
   - models: defaults
   - networks : defaults
+  - datasets: defaults

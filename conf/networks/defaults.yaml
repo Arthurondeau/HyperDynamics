@@ -1,4 +1,8 @@
 network_type: RandomHyperGraph #Type of hypergraph to instantiate
+dataset_name: WORLDREP #Name of the dataset to be used
+
+input_dir: ${hydra:runtime.cwd}/datasets/${networks.dataset_name} #Input directory for the generated hypergraph
+output_dir: ${hydra:runtime.cwd}/networks/${networks.dataset_name} #Output directory for the generated hypergraph
 project_clique: True #True if you want to use the projected clique
 W_weights_type: normal #Type of weights of the hyperedge weight matrix W
 EDVW_params:
@@ -11,4 +15,5 @@ RandomHyperGraph:
   seed: None  # Seed for the random number generator
   EDVW: true  # If true, use the vertex-weight matrix R model
   weighted: true  # If true, use the hyperedge weight matrix W model
+
 

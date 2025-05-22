@@ -6,7 +6,10 @@ from pprint import pprint
 import numpy as np
 import scipy.optimize
 import scipy.stats
-
+from sqlalchemy import create_engine, inspect
+import pandas as pd
+import os 
+from datasets import load_dataset
 
 def EDVW_vertex_weights(H: xgi.Hypergraph, R_type: str) -> np.ndarray:
     """
@@ -220,6 +223,42 @@ def degree_matrix(X:np.ndarray)-> np.ndarray:
     return np.diag(np.sum(X, axis=1))
 
 
+
+def load_data(dataset_name: str, output_dir: str) -> None:
+    """
+    Generate a dataset based on the specified dataset name and save it to the output directory.
+
+    Args:
+        dataset_name (str): The name of the dataset to generate.
+        output_dir (str): The directory where the generated dataset will be saved.
+
+    Returns:
+        None
+    """
+    # Placeholder for dataset generation logic
+    # You can implement your own logic here based on the dataset_name
+
+    if dataset_name == "WORLDREP" : 
+        # Login using e.g. `huggingface-cli login` to access this dataset
+        df = load_dataset("Daehoon/WORLDREP", split="train")
+        print(f"Generating {dataset_name} dataset and saving to {output_dir}")
+    if dataset_name == "US_Cables":
+        # Create the engine
+        engine = create_engine("postgresql+psycopg2://arthurrondeau@localhost:5432/cable_gate")
+        # List tables
+        inspector = inspect(engine)
+        tables = inspector.get_table_names()
+        print("Tables:", tables)
+
+        for table in tables:
+            print(f"Exporting '{table}'...")
+            df = pd.read_sql(f"SELECT * FROM {table}", engine)
+            csv_path = os.path.join(output_dir, f"{table}.csv")
+            df.to_csv(csv_path, index=False)
+            print(f"Saved to {csv_path}")
+
+        print("\nAll tables exported.")
+    return df
 
 ##################################################
 # HELPERS FUNCTION RELATED TO CHITRA PAPER

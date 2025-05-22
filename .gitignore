@@ -4,6 +4,9 @@ HyperDM/
 
 # Ignore Hydra configuration files
 outputs/
+datasets/
+networks/
+logfile
 *.pdf
 # Ignore Python cache files
 __pycache__/
